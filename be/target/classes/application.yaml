@@ -1,3 +1,6 @@
+server:
+  # 约定后端为固定端口
+  port: 8081
 spring:
   application:
     name: unisandbox-demo
