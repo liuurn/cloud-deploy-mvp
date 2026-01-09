@@ -7,4 +7,7 @@ export default defineConfig({
   server: {
     allowedHosts: true, // 允许所有主机访问预览服务器
   },
+  preview: {
+    allowedHosts: true, // 允许所有主机访问预览服务器
+  },
 });

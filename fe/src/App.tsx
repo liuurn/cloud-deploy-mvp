@@ -50,9 +50,7 @@ function App() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(
-        "http://uxoqnyiht2q3.app.jcloudcs.com/users"
-      );
+      const response = await fetch("/users");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
