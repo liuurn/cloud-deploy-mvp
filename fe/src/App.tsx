@@ -50,7 +50,7 @@ function App() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("/users");
+      const response = await fetch("/be/users");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

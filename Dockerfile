@@ -19,10 +19,10 @@ WORKDIR /app
 
 # Set environment variables
 ENV JAVA_OPTS=""
-ENV PORT=8080
+ENV PORT=5173
 
 # Install Node.js in Runtime Stage (required for 'vite preview')
-RUN apt-get update && apt-get install -y curl \
+RUN apt-get update && apt-get install -y nginx && apt-get install -y curl \
     && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -36,6 +36,8 @@ COPY --from=build-fe /app/fe/package.json /app/fe/
 COPY --from=build-fe /app/fe/vite.config.ts /app/fe/
 COPY --from=build-fe /app/fe/node_modules /app/fe/node_modules
 
+# Copy Nginx Config
+COPY nginx.conf /etc/nginx/nginx.conf
 # Copy Start Script
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
@@ -43,5 +45,7 @@ RUN chmod +x /app/start.sh
 # Expose ports (Optional, for documentation)
 # 8080 is for Backend, dynamic port is for Frontend
 EXPOSE 8080
+EXPOSE 8081
+EXPOSE 5173
 
 CMD ["/app/start.sh"]
