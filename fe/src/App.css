@@ -1,37 +1,39 @@
 #root {
-  max-width: 600px;
+  max-width: 400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   font-family: Arial, sans-serif;
 }
 
 .todo-app {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px;
+  gap: 10px;
+  padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   background-color: #f8f9fa;
+  min-width: 300px;
 }
 
 .todo-app h1 {
   text-align: center;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  font-size: 24px;
 }
 
 .todo-input {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .todo-input input {
   flex: 1;
-  padding: 10px 15px;
+  padding: 8px 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
   outline: none;
   transition: border-color 0.3s;
 }
@@ -41,12 +43,12 @@
 }
 
 .todo-input button {
-  padding: 10px 20px;
+  padding: 8px 16px;
   background-color: #4285f4;
   color: white;
   border: none;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -58,14 +60,14 @@
 .todo-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .todo-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 15px;
+  gap: 8px;
+  padding: 8px 12px;
   background-color: white;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -82,14 +84,14 @@
 }
 
 .todo-item input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   cursor: pointer;
 }
 
 .todo-text {
   flex: 1;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .todo-item.completed .todo-text {
@@ -98,12 +100,12 @@
 }
 
 .delete-btn {
-  padding: 5px 10px;
+  padding: 4px 8px;
   background-color: #ea4335;
   color: white;
   border: none;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -116,13 +118,19 @@
   text-align: center;
   color: #888;
   font-style: italic;
-  padding: 20px;
+  padding: 10px;
+  font-size: 14px;
 }
 
 /* 用户列表样式 */
+/* Users Container */
+.users-container {
+  margin-top: 15px;
+  padding: 15px 0;
+}
 .users-section {
-  margin-top: 30px;
-  padding: 20px;
+  margin-top: 15px;
+  padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   background-color: #f8f9fa;
@@ -146,8 +154,82 @@
   gap: 10px;
 }
 
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.user-form.compact {
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.user-form input,
+.user-form select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.user-form input,
+.user-form select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.user-form input:focus,
+.user-form select:focus {
+  border-color: #4285f4;
+}
+
+.user-form button {
+  padding: 8px 16px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.user-form button:hover {
+  background-color: #3367d6;
+}
+
+.user-form button:disabled {
+  background-color: #90caf9;
+  cursor: not-allowed;
+}
+
+.form-hint {
+  text-align: center;
+  color: #666;
+  font-size: 12px;
+  margin-bottom: 8px;
+  padding: 5px;
+  background-color: #f0f4f8;
+  border-radius: 4px;
+  border-left: 3px solid #4285f4;
+}
+
 .user-item {
-  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
   background-color: white;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -159,13 +241,40 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.user-item h3 {
-  margin: 0 0 5px 0;
-  color: #333;
+.user-item.compact {
+  padding: 8px 10px;
 }
 
-.user-item p {
-  margin: 0;
+.user-info h3,
+.user-info h4 {
+  margin: 0 0 3px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.user-info p {
+  margin: 2px 0;
   color: #666;
+  font-size: 13px;
+}
+
+.delete-user-btn {
+  padding: 8px 16px;
+  background-color: #ea4335;
+  color: white;
+  border: none;
+  border-radius: 4px;
   font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: center;
+}
+
+.delete-user-btn:hover {
+  background-color: #d93025;
+}
+
+.delete-user-btn:disabled {
+  background-color: #f4c7c3;
+  cursor: not-allowed;
 }

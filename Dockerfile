@@ -31,10 +31,11 @@ RUN apt-get update && apt-get install -y nginx && apt-get install -y curl \
 COPY --from=build-be /app/be/target/*.jar /app/app.jar
 
 # Copy Frontend Artifacts
-COPY --from=build-fe /app/fe/dist /app/fe/dist
-COPY --from=build-fe /app/fe/package.json /app/fe/
-COPY --from=build-fe /app/fe/vite.config.ts /app/fe/
-COPY --from=build-fe /app/fe/node_modules /app/fe/node_modules
+# COPY --from=build-fe /app/fe/dist /app/fe/dist
+# COPY --from=build-fe /app/fe/package.json /app/fe/
+# COPY --from=build-fe /app/fe/vite.config.ts /app/fe/
+# COPY --from=build-fe /app/fe/node_modules /app/fe/node_modules
+copy --from=build-fe /app/fe /app/fe
 
 # Copy Nginx Config
 COPY nginx.conf /etc/nginx/nginx.conf
