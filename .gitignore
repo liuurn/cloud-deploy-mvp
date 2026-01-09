@@ -1,2 +1,4 @@
 .joycode
 .vscode
+**/target/
+**/.DS_Store
