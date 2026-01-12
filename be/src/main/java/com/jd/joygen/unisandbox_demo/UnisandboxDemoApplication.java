@@ -17,25 +17,4 @@ public class UnisandboxDemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UnisandboxDemoApplication.class, args);
 	}
-
-	@Bean
-	public WebMvcConfigurer webMvcConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void configurePathMatch(PathMatchConfigurer configurer) {
-				configurer.addPathPrefix("/be", c -> c.isAnnotationPresent(RestController.class));
-			}
-		};
-	}
-
-	@Bean
-	public RepositoryRestConfigurer repositoryRestConfigurer() {
-		return new RepositoryRestConfigurer() {
-			@Override
-			public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-				config.setBasePath("/be");
-			}
-		};
-	}
-
 }
