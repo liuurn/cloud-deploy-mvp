@@ -1,4 +1,4 @@
-package com.jd.joygen.unisandbox_demo;
+package com.jd.joygen.unisandbox;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

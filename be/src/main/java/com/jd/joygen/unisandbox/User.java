@@ -1,4 +1,4 @@
-package com.jd.joygen.unisandbox_demo;
+package com.jd.joygen.unisandbox;
 
 import jakarta.persistence.*;
 import lombok.Data;
