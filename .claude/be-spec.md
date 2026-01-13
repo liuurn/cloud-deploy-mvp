@@ -55,7 +55,7 @@ src/main/java/com/jd/joygen/unisandbox/order/  # 示例：订单模块
 | 内容 | 放置位置 | 规则说明 |
 | :--- | :--- | :--- |
 | **数据库交互** | `repository` | 必须继承 `JpaRepository`。简单的查询使用方法名衍生查询。 |
-| **接口暴露** | `repository` | 使用 `@RepositoryRestResource` 快速暴露 REST 接口。 |
+| **接口暴露** | `repository` | 使用 `@RepositoryRestResource` 快速暴露 REST 接口。需要注意：nginx层使用了/be作为区分后端接口前缀，因此调用后端的接口前需要新增**/be**的uri前缀 |
 | **复杂逻辑** | `service` | 涉及多表事务、复杂计算时，在 Service 层实现并在 Controller 中调用。 |
 | **实体定义** | `model/entity` | 使用 JPA 注解 (`@Entity`, `@Table`, `@Id`)。 |
 
@@ -143,3 +143,4 @@ public class OrderServiceImpl implements OrderService {
         return stats;
     }
 }
+```
